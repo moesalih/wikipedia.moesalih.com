@@ -50,8 +50,8 @@ else if (isset($about)) {
 	$content = "
 	<h1>What is this?</h1>
 	<p>I love Wikipedia. It's awesome. But it deserves a better and more delightful design. This is my vision of how the reading experience should be like. Better typography, removed side bar, reduced clutter, improved contrast and clarity, and more open space.
-	<p>This is just a concept. Some features are not supported, and custom formatting on some wikipedia pages might not look right. If you see anything like that, <a href='mailto:moe.salih@gmail.com'>let me know</a>.
-	<p>If you like this redesign, please share it with your friends and spread the word. And if you have any feedback or if you just want to say hi, feel free to email me.
+	<p>This is just a concept. Some features are not supported, and custom formatting on some wikipedia pages might not look right. If you see anything like that, <a href='mailto:moe.salih@gmail.com'>let me know</a>. Or you can contribute to the project on <a href='https://github.com/moesalih/wikipedia.moesalih.com' target='_blank'>GitHub</a>.
+	<p>If you like this redesign, please share it with your friends and spread the word. And if you have any feedback or if you just want to say hi, feel free to <a href='mailto:moe.salih@gmail.com'>email me</a>.<br /><br />
 	<p>Moe Salih<br />
 	<small><a href='http://moesalih.com'>moesalih.com</a></small>
 	";
