@@ -7,14 +7,14 @@ include("px.017.php");
 
 
 function curl($url) {
-	$ch = curl_init($url); 
+	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_VERBOSE, 1);
 	curl_setopt($ch, CURLOPT_HEADER, 1);
 	curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 
-	$response = curl_exec($ch);     
-	$info = curl_getinfo($ch);     
+	$response = curl_exec($ch);
+	$info = curl_getinfo($ch);
 
 	$headers = substr($response, 0, $info["header_size"]);
 
@@ -24,7 +24,7 @@ function curl($url) {
 	}
 
 	$body = $info["size_download"] ? substr($response, $info["header_size"], $info["size_download"]) : "";
-	
+
 	return $body;
 }
 
@@ -37,7 +37,7 @@ $about = $_GET["about"];
 
 if ($page) {
 	$class = "page";
-	
+
 	$response = curl("https://en.wikipedia.org/wiki/" . urlencode($page));
 	$px = new px($response);
 
@@ -84,20 +84,20 @@ else {
 
 		<link rel="shortcut icon" type="image/png" href="images/icon.png" />
 		<link rel="apple-touch-icon" href="images/icon.png"/>
-		
+
 		<title><?php echo $titleText ? $titleText . " • " : ""; ?>Wikipedia</title>
-		
+
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/social-likes_flat.css" rel="stylesheet">
 		<link href="css/app.css" rel="stylesheet">
-		
+
 <!--
 		<link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 -->
 		<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700,300italic,700italic,400italic' rel='stylesheet' type='text/css'>
-		
+
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -106,39 +106,39 @@ else {
 		<![endif]-->
 	</head>
 	<body class="<?php echo $class; ?>">
-	
-	
+
+		<div class="donate" >Support this site. <a href="https://www.paypal.me/moesalih1" target="_blank">Donate.</a></div>
 		<div class="container">
-		
+
 			<header>Wikipedia</header>
-		
+
 			<div id="search">
 				<form action=".">
 					<input name="search" type="text" placeholder="Search" value="<?php echo $search; ?>" autocomplete="off" autofocus="autofocus" />
 				</form>
 			</div>
-		
+
 			<main>
 				<?php echo $title; ?>
 				<?php echo $content; ?>
 			</main>
-		
-			<div id="social">			
+
+			<div id="social">
 				<div class="social-likes" data-url="http://wikipedia.moesalih.com">
 					<div class="facebook" title="Share link on Facebook">Facebook</div>
 					<div class="twitter" title="Share link on Twitter">Twitter</div>
 					<div class="plusone" title="Share link on Google+">Google+</div>
 				</div>
 			</div>
-			
+
 			<div id="whatisthis">
 				<a href="?about">What is this?</a>
 			</div>
 
 
 		</div>
-		
-		
+
+
 		<script src="js/jquery-1.11.0.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/social-likes.min.js"></script>
@@ -148,7 +148,7 @@ else {
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-			
+
 			ga('create', 'UA-33281840-3', 'moesalih.com');
 			ga('send', 'pageview');
 		</script>
