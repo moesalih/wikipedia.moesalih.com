@@ -18,7 +18,7 @@ function curl($url) {
 
 	$headers = substr($response, 0, $info["header_size"]);
 
-	if (preg_match('/Location: http:\/\/en\.wikipedia\.org\/wiki\/(.*)/', $headers, $matches)) {
+	if (preg_match('/Location: https:\/\/en\.wikipedia\.org\/wiki\/(.*)/', $headers, $matches)) {
 		header("Location: http://" . $_SERVER["HTTP_HOST"] . "/" . $matches[1]);
 		exit;
 	}
@@ -38,7 +38,7 @@ $about = $_GET["about"];
 if ($page) {
 	$class = "page";
 	
-	$response = curl("http://en.wikipedia.org/wiki/" . urlencode($page));
+	$response = curl("https://en.wikipedia.org/wiki/" . urlencode($page));
 	$px = new px($response);
 
 	$title = $px->xpath("//h1[@id='firstHeading']")->html();
@@ -60,7 +60,7 @@ else if (isset($about)) {
 else if ($search) {
 	$class = "search";
 
-	$response = curl("http://en.wikipedia.org/w/index.php?search=" . urlencode($search));
+	$response = curl("https://en.wikipedia.org/w/index.php?search=" . urlencode($search));
 	$px = new px($response);
 
 	$title = "<h1 id='firstHeading'>Search results</h1>";
